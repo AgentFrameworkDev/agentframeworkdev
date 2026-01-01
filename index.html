@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="AgentFramework.dev — hands-on, instructor-led workshops for developers building AI agents with Microsoft Agent Framework and related tooling." />
+  <title>AgentFramework.dev</title>
+
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: rgba(255, 255, 255, 0.06);
+      --card2: rgba(255, 255, 255, 0.10);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.70);
+      --faint: rgba(255, 255, 255, 0.55);
+      --link: rgba(255, 255, 255, 0.92);
+      --ring: rgba(255, 255, 255, 0.25);
+      --shadow: 0 12px 40px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f8fb;
+        --card: rgba(0, 0, 0, 0.04);
+        --card2: rgba(0, 0, 0, 0.06);
+        --text: rgba(0, 0, 0, 0.88);
+        --muted: rgba(0, 0, 0, 0.70);
+        --faint: rgba(0, 0, 0, 0.56);
+        --link: rgba(0, 0, 0, 0.88);
+        --ring: rgba(0, 0, 0, 0.16);
+        --shadow: 0 12px 40px rgba(0,0,0,0.12);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(120, 130, 255, 0.25), transparent 60%),
+        radial-gradient(900px 700px at 90% 20%, rgba(30, 180, 255, 0.18), transparent 55%),
+        radial-gradient(700px 700px at 50% 95%, rgba(255, 130, 200, 0.12), transparent 50%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    a { color: var(--link); text-decoration: underline; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+    a:hover { opacity: 0.9; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--ring);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .logo {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(120,130,255,0.9), rgba(40,190,255,0.75)),
+        rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+    .logo::after {
+      content: "";
+      position: absolute;
+      inset: -40% -40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 45%);
+      transform: rotate(20deg);
+    }
+
+    .brand h1 {
+      font-size: 16px;
+      margin: 0;
+      letter-spacing: 0.2px;
+      font-weight: 700;
+    }
+
+    .brand .sub {
+      font-size: 12px;
+      margin: 2px 0 0;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 1px solid var(--ring);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      header { align-items: flex-start; flex-direction: column; }
+      nav { justify-content: flex-start; }
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.02));
+      border: 1px solid var(--ring);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .headline {
+      font-size: 44px;
+      line-height: 1.08;
+      margin: 6px 0 10px;
+      letter-spacing: -0.6px;
+    }
+
+    @media (max-width: 520px) {
+      .headline { font-size: 36px; }
+    }
+
+    .lede {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .pillrow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+    }
+
+    .pill {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: var(--card2);
+      border: 1px solid var(--ring);
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--ring);
+      background: var(--card2);
+      color: var(--text);
+      padding: 11px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(120,130,255,0.95), rgba(40,190,255,0.78));
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 0 0 8px;
+    }
+
+    .h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+
+    .body {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--ring);
+      color: var(--faint);
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .small {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--faint);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>AgentFramework.dev</h1>
+          <p class="sub">Hands-on, instructor-led workshops for developers building AI agents.</p>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub Org</a>
+        <a href="#events">Events</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div class="card">
+          <p class="kicker">Workshops • Dev Days • Labs</p>
+          <h2 class="headline">Build real agents.<br />Learn the hard parts.</h2>
+          <p class="lede">
+            AgentFramework.dev is a workshop series focused on practical agent engineering:
+            tools, workflows, RAG, evals, safety, and observability—using the Microsoft Agent Framework and related ecosystems.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#events">See upcoming events</a>
+            <a class="btn" href="https://github.com/AgentFrameworkDev" rel="noopener">Browse repos</a>
+          </div>
+
+          <div class="pillrow" aria-label="Topics">
+            <span class="pill">Agent Framework</span>
+            <span class="pill">Foundry</span>
+            <span class="pill">Tools + MCP</span>
+            <span class="pill">Agentic RAG</span>
+            <span class="pill">Evals</span>
+            <span class="pill">Observability</span>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="Quick info">
+          <p class="kicker">Quick info</p>
+          <h3 class="h2">What you can expect</h3>
+          <ul class="list">
+            <li>All-day, hands-on labs (not “copy/paste”).</li>
+            <li>Reference implementations you can reuse.</li>
+            <li>Clear guidance on architecture tradeoffs.</li>
+            <li>Practical debugging + telemetry patterns.</li>
+          </ul>
+
+          <h3 class="h2" style="margin-top:14px;">Who it’s for</h3>
+          <p class="body">
+            Working developers who want to build agent systems that hold up in production.
+          </p>
+
+          <p class="small" style="margin-top:14px;">
+            This site is hosted on GitHub Pages.
+          </p>
+        </aside>
+      </section>
+
+      <section id="events" class="grid" aria-label="Sections">
+        <div class="card">
+          <p class="kicker">Events</p>
+          <h3 class="h2">Upcoming</h3>
+          <p class="body">
+            Add your upcoming Dev Days here. When you’re ready, replace this with a simple list or embed a calendar.
+          </p>
+          <ul class="list">
+            <li><strong>Dev Day #1</strong> — TBD (Boston / NH)</li>
+            <li><strong>Dev Labs</strong> — TBD (smaller cohort)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="kicker">Curriculum</p>
+          <h3 class="h2">Core tracks</h3>
+          <p class="body">A practical sequence you can run as a one-day workshop.</p>
+          <ul class="list">
+            <li>Simple agent chat + memory</li>
+            <li>Workflow + retrieval patterns</li>
+            <li>Tools: inline, MCP local/remote</li>
+            <li>Evals + safety guardrails</li>
+            <li>Observability (OTel/App Insights)</li>
+          </ul>
+        </div>
+
+        <div class="card" id="sponsors">
+          <p class="kicker">Sponsors</p>
+          <h3 class="h2">Support the series</h3>
+          <p class="body">
+            Want to sponsor venue, food, or credits? You’ll get placement on the site and event materials.
+          </p>
+          <p class="body" style="margin-top:10px;">
+            Email: <a href="mailto:sponsors@agentframework.dev">sponsors@agentframework.dev</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:14px;">
+        <div class="card">
+          <p class="kicker">Contact</p>
+          <h3 class="h2">Get in touch</h3>
+          <p class="body">
+            For general questions: <a href="mailto:info@agentframework.dev">info@agentframework.dev</a><br />
+            For operations: <a href="mailto:ops@agentframework.dev">ops@agentframework.dev</a><br />
+            For security: <a href="mailto:security@agentframework.dev">security@agentframework.dev</a>
+          </p>
+          <p class="small" style="margin-top:10px;">
+            Replace these addresses with whatever you actually provision.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <span>© <span id="y"></span> AgentFramework.dev</span>
+        <span class="small">•</span>
+        <a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub</a>
+      </div>
+      <div class="small">
+        Built with plain HTML/CSS. No tracking by default.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Keep it minimal: set the current year.
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
