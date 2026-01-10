@@ -19,7 +19,7 @@
       --ring: rgba(255, 255, 255, 0.25);
       --shadow: 0 12px 40px rgba(0,0,0,0.35);
       --radius: 18px;
-      --max: 1040px;
+      --max: 900px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
@@ -68,17 +68,18 @@
 
     header {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      text-align: center;
       gap: 16px;
       padding: 8px 0 24px;
     }
 
     .brand {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 12px;
-      min-width: 220px;
     }
 
     .logo {
@@ -117,7 +118,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
     nav a {
@@ -128,18 +129,9 @@
       border: 1px solid var(--ring);
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      align-items: stretch;
-      margin-top: 6px;
-    }
-
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      header { align-items: flex-start; flex-direction: column; }
-      nav { justify-content: flex-start; }
+      header { align-items: center; flex-direction: column; }
+      nav { justify-content: center; }
     }
 
     .card {
@@ -148,6 +140,7 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 18px;
+      margin-top: 14px;
     }
 
     .headline {
@@ -165,24 +158,6 @@
       margin: 0 0 16px;
       color: var(--muted);
       font-size: 16px;
-    }
-
-    .pillrow {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 14px 0 0;
-    }
-
-    .pill {
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: var(--card2);
-      border: 1px solid var(--ring);
-      color: var(--text);
-      white-space: nowrap;
     }
 
     .cta {
@@ -211,14 +186,6 @@
       background: linear-gradient(135deg, rgba(120,130,255,0.95), rgba(40,190,255,0.78));
       border-color: rgba(255,255,255,0.24);
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
 
     .kicker {
       font-size: 12px;
@@ -280,110 +247,77 @@
       </div>
 
       <nav aria-label="Primary">
-        <a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub Org</a>
-        <a href="#events">Events</a>
-        <a href="#sponsors">Sponsors</a>
-        <a href="#contact">Contact</a>
+        <a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub</a>
+        <a href="https://www.meetup.com/bostonazureai/" rel="noopener">Meetup</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero" aria-label="Hero">
-        <div class="card">
-          <p class="kicker">Workshops • Dev Days • Labs</p>
-          <h2 class="headline">Build real agents.<br />Learn the hard parts.</h2>
-          <p class="lede">
-            AgentFramework.dev is a workshop series focused on practical agent engineering:
-            tools, workflows, RAG, evals, safety, and observability—using the Microsoft Agent Framework and related ecosystems.
-          </p>
-
-          <div class="cta">
-            <a class="btn primary" href="#events">See upcoming events</a>
-            <a class="btn" href="https://github.com/AgentFrameworkDev" rel="noopener">Browse repos</a>
-          </div>
-
-          <div class="pillrow" aria-label="Topics">
-            <span class="pill">Agent Framework</span>
-            <span class="pill">Foundry</span>
-            <span class="pill">Tools + MCP</span>
-            <span class="pill">Agentic RAG</span>
-            <span class="pill">Evals</span>
-            <span class="pill">Observability</span>
-          </div>
-        </div>
-
-        <aside class="card" aria-label="Quick info">
-          <p class="kicker">Quick info</p>
-          <h3 class="h2">What you can expect</h3>
-          <ul class="list">
-            <li>All-day, hands-on labs (not “copy/paste”).</li>
-            <li>Reference implementations you can reuse.</li>
-            <li>Clear guidance on architecture tradeoffs.</li>
-            <li>Practical debugging + telemetry patterns.</li>
-          </ul>
-
-          <h3 class="h2" style="margin-top:14px;">Who it’s for</h3>
-          <p class="body">
-            Working developers who want to build agent systems that hold up in production.
-          </p>
-
-          <p class="small" style="margin-top:14px;">
-            This site is hosted on GitHub Pages.
-          </p>
-        </aside>
+      <section class="card" aria-label="Introduction">
+        <h2 class="headline">Agent Framework Dev Day</h2>
+        <p class="lede">
+          Hands-on, instructor-led workshop for developers building AI agents with Microsoft Agent Framework, 
+          RAG patterns, MCP (Model Context Protocol), and modern observability tools.
+        </p>
       </section>
 
-      <section id="events" class="grid" aria-label="Sections">
-        <div class="card">
-          <p class="kicker">Events</p>
-          <h3 class="h2">Upcoming</h3>
-          <p class="body">
-            Add your upcoming Dev Days here. When you’re ready, replace this with a simple list or embed a calendar.
-          </p>
-          <ul class="list">
-            <li><strong>Dev Day #1</strong> — TBD (Boston / NH)</li>
-            <li><strong>Dev Labs</strong> — TBD (smaller cohort)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <p class="kicker">Curriculum</p>
-          <h3 class="h2">Core tracks</h3>
-          <p class="body">A practical sequence you can run as a one-day workshop.</p>
-          <ul class="list">
-            <li>Simple agent chat + memory</li>
-            <li>Workflow + retrieval patterns</li>
-            <li>Tools: inline, MCP local/remote</li>
-            <li>Evals + safety guardrails</li>
-            <li>Observability (OTel/App Insights)</li>
-          </ul>
-        </div>
-
-        <div class="card" id="sponsors">
-          <p class="kicker">Sponsors</p>
-          <h3 class="h2">Support the series</h3>
-          <p class="body">
-            Want to sponsor venue, food, or credits? You’ll get placement on the site and event materials.
-          </p>
-          <p class="body" style="margin-top:10px;">
-            Email: <a href="mailto:sponsors@agentframework.dev">sponsors@agentframework.dev</a>
-          </p>
+      <section class="card" aria-label="Event Details">
+        <p class="kicker">Upcoming Event</p>
+        <h3 class="h2">Agent Framework Dev Day</h3>
+        <p class="body">
+          <strong>Date:</strong> Saturday, January 25, 2025<br />
+          <strong>Time:</strong> 9:00 AM – 4:00 PM<br />
+          <strong>Location:</strong> Microsoft Burlington Office, MA<br />
+          <strong>Hosted by:</strong> Boston Azure AI
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="https://www.meetup.com/bostonazureai/events/312564860/" rel="noopener">Register on Meetup</a>
         </div>
       </section>
 
-      <section id="contact" style="margin-top:14px;">
-        <div class="card">
-          <p class="kicker">Contact</p>
-          <h3 class="h2">Get in touch</h3>
-          <p class="body">
-            For general questions: <a href="mailto:info@agentframework.dev">info@agentframework.dev</a><br />
-            For operations: <a href="mailto:ops@agentframework.dev">ops@agentframework.dev</a><br />
-            For security: <a href="mailto:security@agentframework.dev">security@agentframework.dev</a>
-          </p>
-          <p class="small" style="margin-top:10px;">
-            Replace these addresses with whatever you actually provision.
-          </p>
-        </div>
+      <section class="card" aria-label="Agenda">
+        <p class="kicker">Agenda</p>
+        <h3 class="h2">What we'll cover</h3>
+        <p class="body" style="margin-bottom:10px;">
+          A full-day workshop broken into three parts:
+        </p>
+        <ul class="list">
+          <li><strong>Part 1:</strong> Overview, first agent (lab0), OpenTelemetry, Safety, Hosted Agents</li>
+          <li><strong>Part 2:</strong> RAG, Agentic RAG, MCP (Model Context Protocol)</li>
+          <li><strong>Part 3:</strong> Workflows, MCP deep-dive</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-label="Presenters">
+        <p class="kicker">Presenters</p>
+        <h3 class="h2">Your instructors</h3>
+        <ul class="list">
+          <li><strong>Jason</strong></li>
+          <li><strong>Udai</strong></li>
+          <li><strong>Bill</strong></li>
+        </ul>
+      </section>
+
+      <section class="card" aria-label="Resources">
+        <p class="kicker">Resources</p>
+        <h3 class="h2">Labs and materials</h3>
+        <p class="body">
+          All labs are available in both .NET (C#) and Python:
+        </p>
+        <ul class="list">
+          <li><a href="https://github.com/AgentFrameworkDev/agent-framework-dev-day" rel="noopener">Lab Repository</a> — Hands-on exercises and code samples</li>
+          <li><a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub Organization</a> — All project repositories</li>
+          <li><a href="https://www.meetup.com/bostonazureai/events/312564860/" rel="noopener">Meetup Event Page</a> — Registration and updates</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-label="Contact">
+        <p class="kicker">Contact</p>
+        <h3 class="h2">Get in touch</h3>
+        <p class="body">
+          For general questions: <a href="mailto:info@agentframework.dev">info@agentframework.dev</a><br />
+          For sponsorship inquiries: <a href="mailto:sponsors@agentframework.dev">sponsors@agentframework.dev</a>
+        </p>
       </section>
     </main>
 
@@ -392,6 +326,8 @@
         <span>© <span id="y"></span> AgentFramework.dev</span>
         <span class="small">•</span>
         <a href="https://github.com/AgentFrameworkDev" rel="noopener">GitHub</a>
+        <span class="small">•</span>
+        <a href="https://www.meetup.com/bostonazureai/" rel="noopener">Meetup</a>
       </div>
       <div class="small">
         Built with plain HTML/CSS. No tracking by default.
