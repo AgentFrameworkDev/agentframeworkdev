@@ -83,22 +83,9 @@
     }
 
     .logo {
-      width: 42px; height: 42px;
-      border-radius: 14px;
-      background:
-        linear-gradient(135deg, rgba(120,130,255,0.9), rgba(40,190,255,0.75)),
-        rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+      width: 120px;
+      height: auto;
       flex: 0 0 auto;
-    }
-    .logo::after {
-      content: "";
-      position: absolute;
-      inset: -40% -40%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 45%);
-      transform: rotate(20deg);
     }
 
     .brand h1 {
@@ -239,7 +226,7 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <img class="logo" src="https://raw.githubusercontent.com/AgentFrameworkDev/brand/main/logos/afdp-logo-full.svg" alt="Agent Framework Dev Project Logo" />
         <div>
           <h1>AgentFramework.dev</h1>
           <p class="sub">Hands-on, instructor-led workshops for developers building AI agents.</p>
@@ -292,9 +279,9 @@
         <p class="kicker">Presenters</p>
         <h3 class="h2">Your instructors</h3>
         <ul class="list">
-          <li><strong>Jason</strong></li>
-          <li><strong>Udai</strong></li>
-          <li><strong>Bill</strong></li>
+          <li><strong><a href="https://x.com/haleyjason" rel="noopener">Jason</a></strong></li>
+          <li><strong><a href="https://x.com/nhcloud" rel="noopener">Udai</a></strong></li>
+          <li><strong><a href="https://x.com/codingoutloud" rel="noopener">Bill</a></strong></li>
         </ul>
       </section>
 
