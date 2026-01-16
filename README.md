@@ -1,6 +1,6 @@
 # Agent Framework Dev Project Website
 
-Website for the **Agent Framework Dev Project** - https://agentframework.dev
+Website for the **Agent Framework Dev Project** - <https://agentframework.dev>
 
 ---
 
@@ -8,7 +8,7 @@ The **Agent Framework Dev Project** is a community initiative providing material
 
 Our current lab and presentation materials focus on instructor-led lab material for **Agent Framework Dev Days** with labs, decks, and supporting assets.
 
-Some of our current choices: 
+Some of our current choices:
 
 * Using **Microsoft Agent Framework** (open source, released Oct 2025) for building AI Agents
 * Using **Microsoft Foundry** platform for running AI Agents with observability, safety, and other enterprise-grade features
@@ -19,9 +19,9 @@ Some of our current choices:
 
 ## Audience
 
-Our primary audience is **developers** (and aspiring developers) building, learning to build, or just exploring. 
+Our primary audience is **developers** (and aspiring developers) building, learning to build, or just exploring.
 
-We strive to help you get started developing Agent-based AI systems that: 
+We strive to help you get started developing Agent-based AI systems that:
 
 * Use tools
 * Use workflows
