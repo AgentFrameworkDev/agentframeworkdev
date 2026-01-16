@@ -220,6 +220,48 @@
       font-size: 12px;
       color: var(--faint);
     }
+
+    .memory-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 12px;
+      border: 1px solid var(--ring);
+    }
+
+    .sponsor-logo {
+      max-width: 240px;
+      height: auto;
+      margin-top: 12px;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .partner-card {
+      background: var(--card2);
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .partner-card h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+
+    .partner-card .body {
+      margin: 0;
+    }
   </style>
 </head>
 
@@ -258,6 +300,18 @@
           <li>Applying practical agent architectures, tools, and workflows, including human-in-the-loop</li>
           <li>Applying useful real-world patterns for building, evaluating, and operating AI agents</li>
         </ul>
+      </section>
+
+      <section class="card" aria-label="Memories">
+        <p class="kicker">Memories</p>
+        <h3 class="h2">16-Jan-2026 - Agent Framework Dev Day</h3>
+        <p class="body">
+          We burned more than <strong>3 million inference tokens</strong> during the day at Microsoft in Burlington!
+        </p>
+        <img class="memory-img" src="memories/3milliontokens-dashboard.png" alt="3M tokens used during labs - full dashboard" />
+        <p class="body" style="margin-top:10px;">
+          <strong>3008.03k tokens</strong> — A testament to the hands-on, intensive nature of our labs.
+        </p>
       </section>
 
       <section class="card" aria-label="Event Details">
@@ -322,6 +376,40 @@
         <ul class="list">
           <li><a href="https://lively-smoke-07f2d200f.3.azurestaticapps.net/" rel="noopener">Pragmatic Email Validator</a> — Experimental email validation tool</li>
         </ul>
+      </section>
+
+      <section class="card" aria-label="Community Partners">
+        <p class="kicker">Community Partners</p>
+        <h3 class="h2">Our Community Partners</h3>
+        <p class="body" style="margin-bottom:10px;">
+          We're proud to collaborate with these amazing communities:
+        </p>
+        <div class="partner-grid">
+          <div class="partner-card">
+            <h4><a href="https://www.meetup.com/bostonazureai/" rel="noopener">Boston Azure AI</a></h4>
+            <p class="body">Meetup community focused on Azure AI technologies and developer education.</p>
+          </div>
+          <div class="partner-card">
+            <h4><a href="https://udai.io/" rel="noopener">Udai's Community</a></h4>
+            <p class="body">Personal community website featuring insights and resources for AI development.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Sponsors">
+        <p class="kicker">Sponsors</p>
+        <h3 class="h2">Our Sponsors</h3>
+        <p class="body">
+          We're grateful for the support of our sponsors who make these events possible:
+        </p>
+        <div style="margin-top:14px;">
+          <a href="https://www.akumina.com/" rel="noopener">
+            <img class="sponsor-logo" src="https://www.akumina.com/application/themes/rawnet/app/images/interface/akumina_logo.png" alt="Akumina Logo" />
+          </a>
+        </div>
+        <p class="body" style="margin-top:10px;">
+          <strong><a href="https://www.akumina.com/" rel="noopener">Akumina</a></strong> — Primary sponsor
+        </p>
       </section>
 
       <section class="card" aria-label="Contact">
