@@ -53,6 +53,12 @@ Reuse, adaptation, and contribution are encouraged. Reach out to us!
 
 ---
 
+## Experimental Tools
+
+* [Pragmatic Email Validator](https://lively-smoke-07f2d200f.3.azurestaticapps.net/) - Experimental email validation tool
+
+---
+
 ## Learn More
 
 * Website: [https://agentframework.dev](https://agentframework.dev)
