@@ -16,7 +16,7 @@ We burned more than 3 million inference tokens during the day:
 
 ![Calm before the storm - final prep before doors open](memories/2025-01-16/calm-before-the-storm-final-prep-before-doors-open.jpeg)
 
-![First event 2026 - pivot from Semantic Kernel](memories/2025-01-16/first-event-2026-pivot-from-semantic-kernel.jpeg)
+![First 2026 event - pivot from Semantic Kernel](memories/2025-01-16/first-event-2026-pivot-from-semantic-kernel.jpeg)
 
 ![Getting started](memories/2025-01-16/getting-started.jpeg)
 
@@ -25,3 +25,13 @@ We burned more than 3 million inference tokens during the day:
 ![Thank you sponsor Akumina](memories/2025-01-16/thank-you-sponsor-akumina.jpeg)
 
 ![Underway](memories/2025-01-16/underway.jpeg)
+
+### A few more photos, courtesy of [Dan Gerry](https://www.linkedin.com/feed/update/urn:li:activity:7419077106162098176/)
+
+![Jason - When to use Agentic RAG - slide](memories/2025-01-16/jason-slide-when-to-use-agentic-rag-dg.jpeg)
+
+![Jason - Not all questions are easy - slide](memories/2025-01-16/jason-challenges-slide-not-all-questions-are-easy-dg.jpeg)
+
+![Udai presenting](memories/2025-01-16/udai-presenting-dg.jpeg)
+
+![Jason presenting](memories/2025-01-16/jason-presenting-dg.jpeg)
